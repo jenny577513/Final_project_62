@@ -14,6 +14,7 @@ typedef struct character
     int anime; // counting the time of animation
     int anime_time; // indicate how long the animation
 }Character;
+
 Character chara;
 ALLEGRO_SAMPLE *sample = NULL;
 
@@ -41,6 +42,7 @@ void character_init(){
     // initial the geometric information of character
     chara.width = al_get_bitmap_width(chara.img_move[0]);
     chara.height = al_get_bitmap_height(chara.img_move[0]);
+
     //改了一下初始位置
     chara.x = 50;
     chara.y = HEIGHT/2;
@@ -88,6 +90,7 @@ void charater_update(){
         chara.state = STOP;
     }
 }
+
 //因為沒有左右轉向的部分，把多餘的地方刪掉了
 void character_draw(){
     // with the state, draw corresponding image

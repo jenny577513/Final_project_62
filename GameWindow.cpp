@@ -97,7 +97,9 @@ int process_event(){
     if( window == 1 ){
         menu_process(event);
     }else if( window == 2 ){
+        background_process(event); //背景
         charater_process(event);
+
     }
 
     // Shutdown our program
