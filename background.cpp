@@ -1,7 +1,4 @@
-#include "global.h"
-#include "scene.h"
-#include "charater.h"
-
+#include "background.h"
 
 typedef struct bgd
 {

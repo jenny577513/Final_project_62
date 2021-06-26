@@ -1,5 +1,6 @@
 #include "scene.h"
 #include "charater.h"
+#include "object.h"
 #include "background.h"
 
 ALLEGRO_FONT *font = NULL;
@@ -28,17 +29,20 @@ void game_scene_init(){
 
     background_init();
     character_init();
+    cone_init();
 }
 
 void game_scene_draw(){
 
     background_draw();
     character_draw();
+    cone_draw();
     al_flip_display();
 }
 
 void game_scene_destroy(){
 
+    cone_destory();
     background_destroy();
     character_destory();
 }

@@ -1,5 +1,6 @@
 #include "global.h"
 #include "charater.h"
+#include "object.h"
 #include "scene.h"
 #include "background.h"
 

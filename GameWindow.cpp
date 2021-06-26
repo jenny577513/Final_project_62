@@ -101,7 +101,7 @@ int process_event(){
     }else if( window == 2 ){
         background_process(event); //背景
         charater_process(event);
-
+        cone_process(event);
     }
 
     // Shutdown our program

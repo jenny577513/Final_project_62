@@ -39,11 +39,15 @@
 		</Compiler>
 		<Unit filename="GameWindow.cpp" />
 		<Unit filename="GameWindow.h" />
+		<Unit filename="background.cpp" />
+		<Unit filename="background.h" />
 		<Unit filename="charater.cpp" />
 		<Unit filename="charater.h" />
 		<Unit filename="global.cpp" />
 		<Unit filename="global.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="object.cpp" />
+		<Unit filename="object.h" />
 		<Unit filename="scene.cpp" />
 		<Unit filename="scene.h" />
 		<Extensions />

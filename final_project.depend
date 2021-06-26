@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1624715114 source:c:\users\慈恩\downloads\i2p1_final_project-master\charater.cpp
+1624730668 source:c:\users\慈恩\downloads\i2p1_final_project-master\charater.cpp
 	"charater.h"
 
-1624723192 c:\users\慈恩\downloads\i2p1_final_project-master\charater.h
+1624730809 c:\users\慈恩\downloads\i2p1_final_project-master\charater.h
 	"global.h"
 
 1621834427 c:\users\慈恩\downloads\i2p1_final_project-master\global.h
@@ -316,16 +316,17 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_font.h"
 
-1624723689 source:c:\users\慈恩\downloads\i2p1_final_project-master\gamewindow.cpp
+1624731095 source:c:\users\慈恩\downloads\i2p1_final_project-master\gamewindow.cpp
 	"GameWindow.h"
 
-1624722777 c:\users\慈恩\downloads\i2p1_final_project-master\gamewindow.h
+1624731139 c:\users\慈恩\downloads\i2p1_final_project-master\gamewindow.h
 	"global.h"
 	"charater.h"
+	"object.h"
 	"scene.h"
 	"background.h"
 
-1624722757 c:\users\慈恩\downloads\i2p1_final_project-master\scene.h
+1624730806 c:\users\慈恩\downloads\i2p1_final_project-master\scene.h
 	"global.h"
 	"charater.h"
 
@@ -335,9 +336,10 @@
 1621834427 source:c:\users\慈恩\downloads\i2p1_final_project-master\main.cpp
 	"GameWindow.h"
 
-1624723057 source:c:\users\慈恩\downloads\i2p1_final_project-master\scene.cpp
+1624731183 source:c:\users\慈恩\downloads\i2p1_final_project-master\scene.cpp
 	"scene.h"
 	"charater.h"
+	"object.h"
 	"background.h"
 
 1624723057 source:c:\users\慈恩\downloads\i2p1_final_project-master\background.c
@@ -345,11 +347,15 @@
 	"scene.h"
 	"charater.h"
 
-1624722757 c:\users\慈恩\downloads\i2p1_final_project-master\background.h
+1624728277 c:\users\慈恩\downloads\i2p1_final_project-master\background.h
 	"global.h"
 
-1624723744 source:c:\users\慈恩\downloads\i2p1_final_project-master\background.cpp
+1624728494 source:c:\users\慈恩\downloads\i2p1_final_project-master\background.cpp
+	"background.h"
+
+1624731160 source:c:\users\慈恩\downloads\i2p1_final_project-master\object.cpp
+	"object.h"
+
+1624730917 c:\users\慈恩\downloads\i2p1_final_project-master\object.h
 	"global.h"
-	"scene.h"
-	"charater.h"
 
