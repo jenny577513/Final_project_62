@@ -54,7 +54,7 @@ void game_init() {
     fps  = al_create_timer( 1.0 / FPS );
     al_register_event_source(event_queue, al_get_timer_event_source( fps )) ;
     // initialize the icon on the display
-    ALLEGRO_BITMAP *icon = al_load_bitmap("./image/icon.jpg");
+    ALLEGRO_BITMAP *icon = al_load_bitmap("./image/cat_stand.png");
     al_set_display_icon(display, icon);
 }
 
@@ -65,7 +65,6 @@ void game_begin() {
     sample_instance = al_create_sample_instance(song);
     // Loop the song until the display closes
     al_set_sample_instance_playmode(sample_instance, ALLEGRO_PLAYMODE_LOOP);
-    al_restore_default_mixer();
     al_attach_sample_instance_to_mixer(sample_instance, al_get_default_mixer());
     // set the volume of instance
     al_set_sample_instance_gain(sample_instance, 1) ;

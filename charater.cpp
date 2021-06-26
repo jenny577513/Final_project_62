@@ -16,20 +16,24 @@ typedef struct character
 }Character;
 Character chara;
 ALLEGRO_SAMPLE *sample = NULL;
+
+//修改貓跑步的動作
+
 void character_init(){
     // load character images
     for(int i = 1 ; i <= 2 ; i++){
         char temp[50];
-        sprintf( temp, "./image/char_move%d.png", i );
+        sprintf( temp, "./image/cat_run%d.png", i );
         chara.img_move[i-1] = al_load_bitmap(temp);
     }
     for(int i = 1 ; i <= 2 ; i++){
         char temp[50];
-        sprintf( temp, "./image/char_atk%d.png", i );
+        sprintf( temp, "./image/cat_run%d.png", i );
         chara.img_atk[i-1] = al_load_bitmap(temp);
     }
     // load effective sound
-    sample = al_load_sample("./sound/atk_sound.wav");
+    //先隨便抓了一個jump的音效下來用
+    sample = al_load_sample("./sound/jump.mp3");
     chara.atk_Sound  = al_create_sample_instance(sample);
     al_set_sample_instance_playmode(chara.atk_Sound, ALLEGRO_PLAYMODE_ONCE);
     al_attach_sample_instance_to_mixer(chara.atk_Sound, al_get_default_mixer());
@@ -37,9 +41,10 @@ void character_init(){
     // initial the geometric information of character
     chara.width = al_get_bitmap_width(chara.img_move[0]);
     chara.height = al_get_bitmap_height(chara.img_move[0]);
-    chara.x = WIDTH/2;
+    //改了一下初始位置
+    chara.x = 50;
     chara.y = HEIGHT/2;
-    chara.dir = false;
+    //chara.dir = false;
 
     // initial the animation component
     chara.state = STOP;
@@ -47,6 +52,7 @@ void character_init(){
     chara.anime_time = 30;
 
 }
+
 void charater_process(ALLEGRO_EVENT event){
     // process the animation
     if( event.type == ALLEGRO_EVENT_TIMER ){
@@ -62,21 +68,16 @@ void charater_process(ALLEGRO_EVENT event){
         key_state[event.keyboard.keycode] = false;
     }
 }
+
+//鍵盤控制: 只保留W和S(上下)，把位移加大(10)
+//我先直接把ATK的變數當成Jump
 void charater_update(){
     // use the idea of finite state machine to deal with different state
     if( key_state[ALLEGRO_KEY_W] ){
-        chara.y -= 5;
-        chara.state = MOVE;
-    }else if( key_state[ALLEGRO_KEY_A] ){
-        chara.dir = false;
-        chara.x -= 5;
+        chara.y -= 10;
         chara.state = MOVE;
     }else if( key_state[ALLEGRO_KEY_S] ){
-        chara.y += 5;
-        chara.state = MOVE;
-    }else if( key_state[ALLEGRO_KEY_D] ){
-        chara.dir = true;
-        chara.x += 5;
+        chara.y += 10;
         chara.state = MOVE;
     }else if( key_state[ALLEGRO_KEY_SPACE] ){
         chara.state = ATK;
@@ -87,43 +88,33 @@ void charater_update(){
         chara.state = STOP;
     }
 }
+//因為沒有左右轉向的部分，把多餘的地方刪掉了
 void character_draw(){
     // with the state, draw corresponding image
     if( chara.state == STOP ){
-        if( chara.dir )
-            al_draw_bitmap(chara.img_move[0], chara.x, chara.y, ALLEGRO_FLIP_HORIZONTAL);
-        else
+
             al_draw_bitmap(chara.img_move[0], chara.x, chara.y, 0);
+
     }else if( chara.state == MOVE ){
-        if( chara.dir ){
-            if( chara.anime < chara.anime_time/2 ){
-                al_draw_bitmap(chara.img_move[0], chara.x, chara.y, ALLEGRO_FLIP_HORIZONTAL);
-            }else{
-                al_draw_bitmap(chara.img_move[1], chara.x, chara.y, ALLEGRO_FLIP_HORIZONTAL);
-            }
-        }else{
+
             if( chara.anime < chara.anime_time/2 ){
                 al_draw_bitmap(chara.img_move[0], chara.x, chara.y, 0);
             }else{
                 al_draw_bitmap(chara.img_move[1], chara.x, chara.y, 0);
             }
-        }
+
     }else if( chara.state == ATK ){
-        if( chara.dir ){
-            if( chara.anime < chara.anime_time/2 ){
-                al_draw_bitmap(chara.img_atk[0], chara.x, chara.y, ALLEGRO_FLIP_HORIZONTAL);
-            }else{
-                al_draw_bitmap(chara.img_atk[1], chara.x, chara.y, ALLEGRO_FLIP_HORIZONTAL);
-                al_play_sample_instance(chara.atk_Sound);
-            }
-        }else{
+
             if( chara.anime < chara.anime_time/2 ){
                 al_draw_bitmap(chara.img_atk[0], chara.x, chara.y, 0);
+                al_play_sample_instance(chara.atk_Sound);
+                chara.y -= 15;  //jump (up)
+
             }else{
                 al_draw_bitmap(chara.img_atk[1], chara.x, chara.y, 0);
-                al_play_sample_instance(chara.atk_Sound);
+                chara.y += 15;  //jump(down)
             }
-        }
+
     }
 }
 void character_destory(){

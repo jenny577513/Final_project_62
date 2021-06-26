@@ -2,7 +2,7 @@
 
 // variables for global usage
 const float FPS = 60.0;
-const int WIDTH = 400;
+const int WIDTH = 1200;
 const int HEIGHT = 600;
 ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 ALLEGRO_TIMER *fps = NULL;
