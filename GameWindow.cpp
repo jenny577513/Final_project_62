@@ -1,5 +1,6 @@
 #include "GameWindow.h"
 
+
 bool draw = false;
 int window = 1;
 
@@ -93,6 +94,7 @@ int process_event(){
     // Request the event
     ALLEGRO_EVENT event;
     al_wait_for_event(event_queue, &event);
+
     // process the event of other component
     if( window == 1 ){
         menu_process(event);
