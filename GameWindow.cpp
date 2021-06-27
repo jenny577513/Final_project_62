@@ -61,7 +61,7 @@ void game_init() {
 
 void game_begin() {
     // Load sound
-    song = al_load_sample("./sound/hello.wav");
+    song = al_load_sample("./sound/BGM.mp3");
     al_reserve_samples(20);
     sample_instance = al_create_sample_instance(song);
     // Loop the song until the display closes

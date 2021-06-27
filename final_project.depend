@@ -316,7 +316,7 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_font.h"
 
-1624731095 source:c:\users\慈恩\downloads\i2p1_final_project-master\gamewindow.cpp
+1624787364 source:c:\users\慈恩\downloads\i2p1_final_project-master\gamewindow.cpp
 	"GameWindow.h"
 
 1624731139 c:\users\慈恩\downloads\i2p1_final_project-master\gamewindow.h
@@ -336,7 +336,7 @@
 1621834427 source:c:\users\慈恩\downloads\i2p1_final_project-master\main.cpp
 	"GameWindow.h"
 
-1624731183 source:c:\users\慈恩\downloads\i2p1_final_project-master\scene.cpp
+1624787071 source:c:\users\慈恩\downloads\i2p1_final_project-master\scene.cpp
 	"scene.h"
 	"charater.h"
 	"object.h"
